@@ -24,12 +24,12 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
 
 
-    public void save(int pro_id,String name, String category, String description, int price){
+    public void save(String name, String category, String description, int price){
         ContentValues values = new ContentValues();
         values.put(TABLE1_COL2,name);
         values.put(TABLE1_COL3,category);
         values.put(TABLE1_COL4,description);
-        values.put(TABLE1_COL4,price);
+        values.put(TABLE1_COL5,price);
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE1,null,values);
 

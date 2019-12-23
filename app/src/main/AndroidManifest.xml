@@ -17,7 +17,6 @@
             </intent-filter>
             </activity>
 
-        <activity android:name=".Item_RecylerActivity" />
         <activity android:name=".Product_identiyActivity">
 
         </activity>

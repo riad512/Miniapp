@@ -26,6 +26,7 @@ public class Product_identiyActivity extends AppCompatActivity implements View.O
     private EditText product_description;
     private EditText product_price;
     private int toUpdate=0;
+    private SqliteHelper sqliteHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +43,10 @@ public class Product_identiyActivity extends AppCompatActivity implements View.O
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(Product_identiyActivity.this));
         dphelper = new SqliteHelper(this);
-        recyclerView.setAdapter(myAdapter);
+
 
         myAdapter.setListener(this);
+        sqliteHelper =new SqliteHelper(this);
         showList();
 
     }
@@ -64,12 +66,13 @@ public class Product_identiyActivity extends AppCompatActivity implements View.O
         String pro_price = product_price.getText().toString().trim();
         //  strings.add(var);
         //  myAdapter.notifyDataSetChanged();
-        dphelper.save(1,pro_name,pro_category,pro_description,500);
+        dphelper.save(pro_name,pro_category,pro_description,Integer.parseInt(pro_price));
         Toast.makeText(Product_identiyActivity.this,"Data Saved",Toast.LENGTH_SHORT).show();
         product_name.setText("");
         product_category.setText("");
         product_description.setText("");
         product_price.setText("");
+        showList();
 
     }
 

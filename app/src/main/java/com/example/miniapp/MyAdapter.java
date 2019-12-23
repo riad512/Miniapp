@@ -25,7 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.activity_item__recyler,parent,false);
+        View view = inflater.inflate(R.layout.item,parent,false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -34,8 +34,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        int id=datalist.get(position).getProduct_id();
-        String name=datalist.get(position).getProduct_name();
+        holder.pro_id.setText(""+datalist.get(position).getProduct_id());
+        holder.pro_name.setText(""+datalist.get(position).getProduct_name());
         holder.pro_category.setText(""+datalist.get(position).getProduct_cateqory());
         holder.pro_descrip.setText(""+datalist.get(position).getProduct_descriptionl());
         holder.pro_price.setText(""+datalist.get(position).getProduct_price());
